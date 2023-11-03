@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:PasswordGeneratorApp.WPF" xmlns:views="clr-namespace:PasswordGeneratorApp.WPF.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid Margin="10">
         <views:PasswordGeneratorView/>
     </Grid>
