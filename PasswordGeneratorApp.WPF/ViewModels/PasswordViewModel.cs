@@ -81,6 +81,8 @@ namespace PasswordGeneratorApp.WPF.ViewModels
             }
         }
 
+        public string ErrorMessage { get; set; } = "Проверьте заполненность всех полей!";
+
         public ICommand GenerateCommand { get; }
 
         public PasswordViewModel()
