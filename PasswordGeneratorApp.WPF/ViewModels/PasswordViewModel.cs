@@ -7,6 +7,15 @@ namespace PasswordGeneratorApp.WPF.ViewModels
     public class PasswordViewModel : BaseViewModel
     {
         private Password password;
+        public Password Password
+        {
+            get => password;
+            set
+            {
+                password = value;
+                OnProperetyChanged();
+            }
+        }
 
         public int PasswordLength
         {
