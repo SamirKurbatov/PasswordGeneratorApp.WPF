@@ -27,7 +27,7 @@ namespace PasswordGeneratorApp.WPF.ViewModels
             }
         }
 
-        public string GeneratedPassword
+        public string Generated
         {
             get => password.Generated;
             set
@@ -85,10 +85,13 @@ namespace PasswordGeneratorApp.WPF.ViewModels
 
         public ICommand GenerateCommand { get; }
 
+        public ICommand CopyCommand { get; }
+
         public PasswordViewModel()
         {
             password = new();
             GenerateCommand = new GenerateCommand(this);
+            CopyCommand = new CopyCommand(this);
         }
     }
 }

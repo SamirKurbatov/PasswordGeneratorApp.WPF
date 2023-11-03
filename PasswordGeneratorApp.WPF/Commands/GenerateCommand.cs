@@ -20,16 +20,19 @@ namespace PasswordGeneratorApp.WPF.Commands
 
         public override void Execute(object? parameter)
         {
-            passwordViewModel.GeneratedPassword = GetGeneratedPassword();
+            passwordViewModel.Generated = GetGeneratedPassword();
         }
 
         private void GenerateCharacter(bool shouldGenerate, List<string> list, Random random, string characterSet)
         {
             if (shouldGenerate)
             {
-                int randomIndex = random.Next(0, characterSet.Length);
-                char randomChar = characterSet[randomIndex];
-                list.Add(randomChar.ToString());
+                for (int i = 0; i < characterSet.Length; i++)
+                {
+                    int randomIndex = random.Next(0, characterSet.Length);
+                    char randomChar = characterSet[randomIndex];
+                    list.Add(randomChar.ToString());
+                }
             }
         }
 
@@ -52,13 +55,10 @@ namespace PasswordGeneratorApp.WPF.Commands
             {
                 if (passwordLength == 0) throw new ArgumentNullException(nameof(passwordLength));
 
-                for (int i = 0; i < passwordLength; i++)
-                {
-                    GenerateCharacter(hasUpperLetter, list, random, letters.ToUpper());
-                    GenerateCharacter(hasLowerLetter, list, random, letters);
-                    GenerateCharacter(hasDigit, list, random, "0123456789");
-                    GenerateCharacter(hasSpecialSign, list, random, "$#?*");
-                }
+                GenerateCharacter(hasUpperLetter, list, random, letters.ToUpper());
+                GenerateCharacter(hasLowerLetter, list, random, letters);
+                GenerateCharacter(hasDigit, list, random, "0123456789");
+                GenerateCharacter(hasSpecialSign, list, random, "$#?*");
 
                 ShuffleCharacter(random, list, resultSb, passwordLength);
 
