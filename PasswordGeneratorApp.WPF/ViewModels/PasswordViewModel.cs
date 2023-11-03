@@ -28,9 +28,49 @@ namespace PasswordGeneratorApp.WPF.ViewModels
             }
         }
 
-        public bool IsUpperLetter { get; set; }
-
-        public bool IsLowerLetter { get; set; }
+        private bool isUpperLetter;
+        public bool IsUpperLetter
+        {
+            get => isUpperLetter;
+            set
+            {
+                isUpperLetter = value;
+                OnProperetyChanged();
+            }
+        }
+        
+        private bool isLowerLetter;
+        public bool IsLowerLetter
+        {
+            get => isLowerLetter;
+            set
+            {
+                isLowerLetter = value;
+                OnProperetyChanged();
+            }
+        }
+        
+        private bool isDigit;
+        public bool IsDigit
+        {
+            get => isDigit;
+            set
+            {
+                isDigit = value;
+                OnProperetyChanged();
+            }
+        }
+        
+        private bool isSpecialSign;
+        public bool IsSpecialSign
+        {
+            get => isSpecialSign;
+            set
+            {
+                isSpecialSign = value;
+                OnProperetyChanged();
+            }
+        }
 
         public ICommand GenerateCommand { get; }
 
